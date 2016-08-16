@@ -2,6 +2,8 @@
  * Created by alex on 09.08.2016.
  */
 
-var mongoose = require('mongoose');
+const mongoose = require('mongoose'),
+    options = require('./options');
 
-module.exports =  mongoose.connect('mongodb://localhost/mailer');
+mongoose.Promise = global.Promise;
+module.exports =  mongoose.connect(options.db);

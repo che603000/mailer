@@ -26,7 +26,7 @@ var SchemaProfile = new Schema({
 SchemaProfile.static({
     register(options){
         const {name, url} = options;
-        return (new Profile({name, url})).save();
+        return (new Profile({name: name, url})).save();
     }
 })
 

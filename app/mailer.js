@@ -3,6 +3,8 @@
  */
 "use strict";
 
+require('./model');
+
 const nodemailer = require('nodemailer'),
     mongoose = require('mongoose'),
     Profile = mongoose.model('profile'),
@@ -22,7 +24,7 @@ class Mailer {
                 if (doc)
                     return doc;
                 else
-                    throw {cod: 1, message: 'not found', err: {}}
+                    throw {cod: 1, message: 'not found user', err: {}}
             })
             .then(doc=>this.transporter.sendMail(options).catch(err=> {
                 throw {cod: 2, message: 'mailer error', err: err}
@@ -38,10 +40,9 @@ class Mailer {
                 return {id: doc.id.toString()}
             })
             .catch(err=> {
-                throw {cod: 3, message: 'db error', err: err}
+                throw {cod: 3, message: 'validation error', err: err}
             })
     }
-
 
 }
 

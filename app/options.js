@@ -3,6 +3,7 @@
  */
 
 module.exports = {
+    db: 'mongodb://localhost/mailer',
     smtp: {
         host: '10.3.0.1',
         port: 25,
